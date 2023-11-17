@@ -1,5 +1,5 @@
 {
-    "bulds": [
+    "builds": [
         {
             "src":"index.js",
             "routes":"@vercel/node"
