@@ -36,6 +36,7 @@ app.post('/post/SendMessage/:id',auth,SendMessage);
 app.get('/post/GetALLMessages/:id',auth,getAllMessages);
 
 
+
 app.listen(4000, () => {
     mongoose.connect("mongodb+srv://akbaralievbehruz44:user@cluster0.6tpnz02.mongodb.net/basecamp?retryWrites=true&w=majority")
         .then(() => {
