@@ -13,15 +13,21 @@ app.get('/', (req, res) => {
     });
 });
 
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 const corsOptions = {
     origin: 'http://localhost:3000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
   };
-  
 app.use(cors(corsOptions));
+app.options('*', cors());
 app.use(express.json());
 // app.use(express.urlencoded());
 app.post('/post/create', auth, createPost);
