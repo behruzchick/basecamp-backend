@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 });
 
 app.use(cors());
-app.options('*', cors());
 app.use(express.json());
 // app.use(express.urlencoded());
 app.post('/post/create', auth, createPost);
