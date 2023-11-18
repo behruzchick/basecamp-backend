@@ -12,13 +12,13 @@ app.get('/', (req, res) => {
         message: "Hello"
     });
 });
-const corsOptions = {
-    origin: 'http://localhost:3000',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
-};
-app.use(cors(corsOptions));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Methods", "*")
+    res.setHeader("Access-Control-Allow-Headers", "*")
+});
+
+app.use(cors())
 app.use(express.json());
 app.post('/post/create', auth, createPost);
 app.post('/auth/register', signUp);
