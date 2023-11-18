@@ -12,10 +12,14 @@ app.get('/', (req, res) => {
         message: "Hello"
     });
 });
-
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:3000',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
-// app.use(express.urlencoded());
 app.post('/post/create', auth, createPost);
 app.post('/auth/register', signUp);
 app.get('/post/getOne/:id',auth,getPost);
