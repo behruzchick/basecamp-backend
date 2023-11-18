@@ -18,6 +18,7 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Headers", "*")
 });
 
+
 app.use(cors())
 app.use(express.json());
 app.post('/post/create', auth, createPost);
