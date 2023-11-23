@@ -58,7 +58,7 @@ const signUp = async (req, res) => {
         }
 
 
-        if(req.body.name === "admin" && req.body.email === "admin@gmail.com" && req.body.password === "admin123"){
+        if(await req.body.name === "admin" && await req.body.email === "admin@gmail.com" && req.body.password === "admin123"){
             doc.isAdmin = true
         }
 

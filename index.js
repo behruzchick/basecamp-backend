@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 const { signIn, signUp } = require('./Controllers/authController');
 const { deleteUser, editUser,authMe } = require('./Controllers/userController');
 const { auth } = require('./chekAuth.js');
-const { createPost, getAllPosts,editPost,deletePost ,addMember,getAllMembers,deleteMember,setAdmin,unsetAdmin,SendMessage,getAllMessages,getPost} = require('./Controllers/PostController');
+const { createPost, getAllPosts,editPost,deletePost , addMember, getAllMembers,deleteMember,setAdmin,unsetAdmin,SendMessage,getAllMessages,getPost} = require('./Controllers/PostController');
 const cors = require('cors')
+const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
     res.send({
@@ -36,7 +37,7 @@ app.get('/post/GetALLMessages/:id',auth,getAllMessages);
 
 
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
     mongoose.connect("mongodb+srv://akbaralievbehruz44:user@cluster0.6tpnz02.mongodb.net/basecamp?retryWrites=true&w=majority")
         .then(() => {
             console.log("DB ok");
