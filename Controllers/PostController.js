@@ -105,7 +105,7 @@ const deletePost = async (req,res) => {
                 message:"Post not found!"
             })
         }
-        if(!(req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)){
+        if((req.userId === "655eee687c81360e7c734653") && (post.user._id.toString() !== req.userId)){
             return res.status(500).json({
                 message:"No access!!"
             })
