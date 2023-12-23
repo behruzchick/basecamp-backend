@@ -431,12 +431,12 @@ const editMessage = async (req, res) => {
     try {
         const message = await messageModel.findByIdAndUpdate(
             {_id:req.params.messageId},
-            { text: req.body.text },
+            { message: req.body.message },
             { new: true }
         );
 
         const post = await postModel.findById(req.params.id);
-
+        console.log("Updated Message:", message);   
 
         if (!message) {
             return res.status(404).json({
@@ -450,7 +450,6 @@ const editMessage = async (req, res) => {
             });
         }
 
-        
         await post.save();
 
         res.json(message);
