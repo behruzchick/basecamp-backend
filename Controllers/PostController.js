@@ -431,7 +431,7 @@ const editMessage = async (req, res) => {
     try {
         const message = await messageModel.findByIdAndUpdate(
             {_id:req.params.messageId},
-            { text: req.body.text },
+            { text: req.body.message },
             { new: true }
         );
 
