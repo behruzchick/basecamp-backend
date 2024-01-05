@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const { signIn, signUp } = require('./Controllers/authController');
 const { deleteUser, editUser,authMe } = require('./Controllers/userController');
 const { auth } = require('./chekAuth.js');
+const {createThread,getAllThreads} = require('./Controllers/ThController');
 const { createPost, getAllPosts,editPost,deletePost , addMember, getAllMembers,deleteMember,setAdmin,unsetAdmin,SendMessage,getAllMessages,getPost,editMessage, deleteMessage} = require('./Controllers/PostController');
 const cors = require('cors')
 const PORT = process.env.PORT || 5000;
@@ -19,6 +20,8 @@ app.use(express.json());
 
 app.post('/post/create', auth, createPost);
 app.post('/auth/register', signUp);
+app.post('/thread/create/:id',auth,createThread);
+app.get('/thread/getAllThreads/:id',auth,getAllThreads);
 app.get('/post/getOne/:id',auth,getPost);
 app.post('/auth/login', signIn);
 app.post('/user/delete', auth, deleteUser);

@@ -28,7 +28,7 @@ const getAllPosts = async (req, res) => {
         const posts = await postModel.find().populate({
             path: 'user',
         }).populate({
-            path: 'members.user',
+            path: 'members.user.thread',
         })
             .exec();
 
