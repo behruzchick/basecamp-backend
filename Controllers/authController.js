@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { userModel } = require('../models/User');
-
+const {enterEmailError,enterNameError,enterPasswordError,passwordLengthError} = require('../Errors/403Error')
 const signUp = async (req, res) => {
     try {
         const password = req.body.password;

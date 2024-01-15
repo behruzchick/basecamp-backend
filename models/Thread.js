@@ -16,6 +16,10 @@ const threadSchema = mongoose.Schema({
         ref:'User',
         required:true
     },
+    ThChat: {
+        type: mongoose.Types.ObjectId,
+        ref: 'ThChat',
+    }
 })
 
 const threadModel = mongoose.model('Thread',threadSchema);
